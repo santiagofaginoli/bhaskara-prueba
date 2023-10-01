@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { type Message, initialMessages, ChatMessage } from "./chat-message";
 import { useCookies } from "react-cookie";
+import { button as buttonStyles } from "@nextui-org/theme";
 
 const COOKIE_NAME = "next-openai-chatgpt";
 
 const PreLoader = () => (
   <div className="prompt left">
-    <p className="name">AI</p>
+    <p className="name">IA</p>
     <div className="loader">
       <div></div>
       <div></div>
@@ -23,7 +24,7 @@ const InputMessage = ({ input, setInput, sendMessage }: any) => (
       aria-label="chat input"
       required
       value={input}
-      placeholder="Type a message to start the conversation"
+      placeholder="Preguntale algo al matematico"
       onKeyDown={(e) => {
         if (e.key === "Enter") {
           sendMessage(input);
@@ -40,8 +41,13 @@ const InputMessage = ({ input, setInput, sendMessage }: any) => (
         sendMessage(input);
         setInput("");
       }}
+      className={buttonStyles({
+        color: "success",
+        variant: "shadow",
+        size: 'lg',
+      })}
     >
-      Ask
+      Enviar
     </button>
   </div>
 );

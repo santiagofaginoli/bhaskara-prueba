@@ -6,7 +6,7 @@ export type Message = {
 export const initialMessages: Message[] = [
   {
     who: "bot",
-    message: "Hi! I'm A friendly AI assistant. Ask me anything!",
+    message: "Hola, soy un matematico especializado y listo para resolver tus dudas, preguntame lo que sea!!",
   },
 ];
 
@@ -18,7 +18,7 @@ export function ChatMessage({ who = "bot", message }: Message) {
   return (
     <div className={`prompt ${who != "bot" ? "right" : "left"}`}>
       <div>
-        <p className="name">{who != "bot" ? "You" : "AI"}</p>
+        <p className="name">{who != "bot" ? "Tu" : "IA"}</p>
         <p className="msg">{message}</p>
       </div>
     </div>
