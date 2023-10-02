@@ -11,7 +11,7 @@ import { ChatBox } from "../components/chat-box";
 import { useState } from "react";
 import { Divider, Input, Accordion, AccordionItem } from "@nextui-org/react";
 import Swal from "sweetalert2";
-
+import Cards from "@/components/cards";
 export default function IndexPage() {
   const [inputs, setInputs] = useState({
     A: "",
@@ -135,7 +135,7 @@ export default function IndexPage() {
             <h2 className=" pt-5 text-white ">Calculadora de Bhaskara</h2>
           </div>
           <div className="w-full">
-            <Divider/>
+            <Divider />
           </div>
           <div className="w-full md:flex  sm:grid sm:grid-cols-1 md:justify-center md:gap-10">
             <div className=" sm:w-full mb-5 md:w-auto">
@@ -200,7 +200,7 @@ export default function IndexPage() {
               </div>
             </div>
           </div>
-          <Divider/>
+          <Divider />
 
           <div className="w-full flex justify-center mb-5 ">
             <Accordion
@@ -240,63 +240,21 @@ export default function IndexPage() {
       </section>
       {/*------------------------------Section de Explicación--------------------------------*/}
       <div className="w-full flex justify-center mt-20 mb-20 ">
-        <h2 className="text-6xl">Explicación</h2>
+        <h2 className="text-6xl" id="chat">Chat</h2>
       </div>
       <section id="Explicacion" className="grid grid-cols-1 mx-auto w-full">
         <div className="flex justify-center w-full">
-          <div className="w-4/6">
-          </div>
+          <div className="w-4/6"></div>
         </div>
       </section>
       <section>
         <ChatBox />
       </section>
 
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg text-center justify-center">
-          <h1 className={title()}>Make&nbsp;</h1>
-          <h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
-          <br />
-          <h1 className={title()}>
-            websites regardless of your design experience.
-          </h1>
-          <h4 className={subtitle({ class: "mt-4" })}>
-            Beautiful, fast and modern React UI library.
-          </h4>
-        </div>
 
-        <div className="flex gap-3">
-          <Link
-            isExternal
-            as={NextLink}
-            href={siteConfig.links.docs}
-            className={buttonStyles({
-              color: "primary",
-              radius: "full",
-              variant: "shadow",
-            })}
-          >
-            Documentation
-          </Link>
-          <Link
-            isExternal
-            as={NextLink}
-            className={buttonStyles({ variant: "bordered", radius: "full" })}
-            href={siteConfig.links.github}
-          >
-            <GithubIcon size={20} />
-            GitHub
-          </Link>
-        </div>
-
-        <div className="mt-8">
-          <Snippet hideSymbol hideCopyButton variant="bordered">
-            <span>
-              Get started by editing{" "}
-              <Code color="primary">pages/index.tsx</Code>
-            </span>
-          </Snippet>
-        </div>
+      {/*------------------------------Section de Explicación--------------------------------*/}
+      <section>
+        <Cards />
       </section>
     </DefaultLayout>
   );
