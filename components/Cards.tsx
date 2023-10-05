@@ -4,7 +4,7 @@ const Cards = () => {
   return (
     <>
       <div className="w-full flex justify-center mt-20 mb-20 ">
-        <h2 className="text-6xl">Matematicos</h2>
+        <h2 className="text-6xl">Otros Matematicos</h2>
       </div>
       <section
         id="Matematicos"
@@ -15,7 +15,7 @@ const Cards = () => {
             <div className="flex">
               <div className="p-8">
                 <div className="uppercase tracking-wide text-sm text-white font-semibold">
-                  <h3>Adrian Parenza</h3>
+                  <h3>Adrian Paenza</h3>
                 </div>
               </div>
             </div>

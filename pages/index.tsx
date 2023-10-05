@@ -11,7 +11,8 @@ import { ChatBox } from "../components/chat-box";
 import { useState } from "react";
 import { Divider, Input, Accordion, AccordionItem } from "@nextui-org/react";
 import Swal from "sweetalert2";
-import Cards from "@/components/cards";
+import Cards from "@/components/Cards";
+import Bhaskara from "@/components/bhaskara";
 export default function IndexPage() {
   const [inputs, setInputs] = useState({
     A: "",
@@ -238,23 +239,28 @@ export default function IndexPage() {
           </div>
         </div>
       </section>
-      {/*------------------------------Section de Explicación--------------------------------*/}
+
+      {/*------------------------------Section de Matematicos--------------------------------*/}
+      <section>
+        <Cards />
+      </section>
+      {/*------------------------------Section de Chat y video--------------------------------*/}
       <div className="w-full flex justify-center mt-20 mb-20 ">
-        <h2 className="text-6xl" id="chat">Chat</h2>
+        <h2 className="text-6xl" id="chat">
+          Chatea con un Matematico
+        </h2>
       </div>
       <section id="Explicacion" className="grid grid-cols-1 mx-auto w-full">
         <div className="flex justify-center w-full">
-          <div className="w-4/6"></div>
+          <div className="w-4/6">
+            <div>
+              <Bhaskara />
+            </div>
+            <div className="mt-10">
+              <ChatBox />
+            </div>
+          </div>
         </div>
-      </section>
-      <section>
-        <ChatBox />
-      </section>
-
-
-      {/*------------------------------Section de Explicación--------------------------------*/}
-      <section>
-        <Cards />
       </section>
     </DefaultLayout>
   );
