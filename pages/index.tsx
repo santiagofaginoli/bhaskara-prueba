@@ -1,18 +1,11 @@
-import NextLink from "next/link";
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
 import { ChatBox } from "../components/chat-box";
 import { useState } from "react";
 import { Divider, Input, Accordion, AccordionItem } from "@nextui-org/react";
 import Swal from "sweetalert2";
 import Cards from "@/components/Cards";
-import Bhaskara from "@/components/bhaskara";
+import Bhaskara from "@/components/Bhaskara";
+
 export default function IndexPage() {
   const [inputs, setInputs] = useState({
     A: "",
@@ -126,6 +119,27 @@ export default function IndexPage() {
   };
   return (
     <DefaultLayout>
+      {/*------------------------------ Section Proyecto ---------------------------------*/}
+      <section id="Proyecto" className="flex justify-center items-center mt-10">
+        <div className="  grid md:col-span-1">
+          <div className="w-full min-h-[295px] min-w-[430px] relative bg-no-repeat bg-cover  mx-auto bg-[url('/img/back.jpg')] rounded-xl overflow-hidden">
+            <div className="flex">
+              <div className="p-8">
+                <div className="uppercase tracking-wide text-sm text-white font-semibold">
+                  <h3>Sobre la exposicion</h3>
+                </div>
+              </div>
+            </div>
+            <div className="absolute left-0 right-0 p-4 mb-5 justify-center ml-2  max-h-32 overflow-y-scroll text-white">
+              <p>
+                Esta exposicion surge con el fin de ayudar a alumnos que tengan
+                dudas con el area de las ecuaciones cuadraticas, en la seccion
+                del chat, podra preguntar lo que gusten al matematico.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       {/*------------------------------Section de Calculadora de Bhaskara--------------------------------*/}
       <section
         id="inicio"

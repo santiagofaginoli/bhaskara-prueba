@@ -62,11 +62,6 @@ export const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="#Explicacion">
-                <h2 className=" text-white">Explicacion</h2>
-              </Link>
-            </li>
-            <li>
               <Link href="#Matematicos">
                 <h2 className=" text-white">Matematicos</h2>
               </Link>
