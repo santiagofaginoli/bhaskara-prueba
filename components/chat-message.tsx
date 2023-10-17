@@ -6,7 +6,7 @@ export type Message = {
 export const initialMessages: Message[] = [
   {
     who: "bot",
-    message: "Hola, soy un matematico especializado y listo para resolver tus dudas, preguntame lo que sea!!",
+    message: "Hola, soy un matematico especializado en cuadraticas, estoy listo para resolver tus dudas, preguntame lo que sea!!",
   },
 ];
 

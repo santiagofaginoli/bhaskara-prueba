@@ -8,7 +8,7 @@ const Cards = () => {
       </div>
       <section
         id="Matematicos"
-        className="grid p-10  mt-5 mb-5 grid-cols-1 gap-5 md:grid-cols-3"
+        className="grid md:p-10  mt-5 mb-5 grid-cols-1 gap-5 md:grid-cols-3"
       >
         <div className="  grid md:col-span-1">
           <div className="w-full min-h-[350px] relative bg-no-repeat bg-cover  mx-auto bg-[url('/img/adrian-paenza.png')] rounded-xl overflow-hidden">

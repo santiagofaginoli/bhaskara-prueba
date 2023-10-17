@@ -15,14 +15,14 @@ export default function IndexPage() {
   const [stateA, setA] = useState("");
   const [stateB, setB] = useState("");
   const [stateC, setC] = useState("");
-  const [resutaldo, setResultado] = useState(0);
+  const [resutaldo, setResultado] = useState({});
   const [valorDelta, setDelta] = useState(0);
 
-  function calcularDelta(a: number, b: number, c: number): number {
+  function calcularDelta(a, b, c) {
     return b * b - 4 * a * c;
   }
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
     if (e.target.name === "A") {
       setA(e.target.value);
@@ -44,7 +44,7 @@ export default function IndexPage() {
         text: "Ingrese todos los campos",
       });
       return;
-    } else if (stateA == 0) {
+    } else if (Number(stateA) == 0) {
       Swal.fire({
         icon: "warning",
         title: "¡Cuidado!",
@@ -67,16 +67,18 @@ export default function IndexPage() {
     setDelta(delta);
     if (delta < 0) {
       delta = delta * -1;
-      let x1 = (-Number(stateB) / (2 * Number(stateA))) * 1;
-      if (x1 > 0) {
-        x1 = "+" + x1;
-      }
+      const x1 = (-Number(stateB) / (2 * Number(stateA))) * 1;
       let x1i = Math.sqrt(delta) / (2 * Number(stateA)) + "i";
       let x2 = (-Number(stateB) / (2 * Number(stateA))) * -1;
-      if (x2 > 0) {
-        x2 = "+" + x2;
-      }
       let x2i = Math.sqrt(delta) / (2 * Number(stateA)) + "i";
+
+      if (x1 > 0) {
+        setResultado({ resA:"+" + x1, resB: x2, resAi: x1i, resBi: x2i})
+      }
+  
+      if (x2 > 0) {
+        setResultado({resB: "+" + x2, resAi: x1i, resBi: x2i})
+      }
       setResultado({ resA: x1, resB: x2, resAi: x1i, resBi: x2i });
       Swal.fire({
         icon: "success",
@@ -119,33 +121,12 @@ export default function IndexPage() {
   };
   return (
     <DefaultLayout>
-      {/*------------------------------ Section Proyecto ---------------------------------*/}
-      <section id="Proyecto" className="flex justify-center items-center mt-10">
-        <div className="  grid md:col-span-1">
-          <div className="w-full min-h-[295px] min-w-[430px] relative bg-no-repeat bg-cover  mx-auto bg-[url('/img/back.jpg')] rounded-xl overflow-hidden">
-            <div className="flex">
-              <div className="p-8">
-                <div className="uppercase tracking-wide text-sm text-white font-semibold">
-                  <h3>Sobre la exposicion</h3>
-                </div>
-              </div>
-            </div>
-            <div className="absolute left-0 right-0 p-4 mb-5 justify-center ml-2  max-h-32 overflow-y-scroll text-white">
-              <p>
-                Esta exposicion surge con el fin de ayudar a alumnos que tengan
-                dudas con el area de las ecuaciones cuadraticas, en la seccion
-                del chat, podra preguntar lo que gusten al matematico.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
       {/*------------------------------Section de Calculadora de Bhaskara--------------------------------*/}
       <section
         id="inicio"
-        className="flex justify-center items-center w-screen h-screen  "
+        className="flex justify-center items-center w-screen h-screen fondo"
       >
-        <div className=" grid grid-cols-1 gap-y-4 p-5 sm:w-5/6 md:w-4/6 bg-transparent border">
+        <div className=" grid grid-cols-1 gap-y-4 p-5 sm:w-5/6 md:w-4/6 backdrop-blur  prompt">
           <div className="w-full flex justify-center">
             <h2 className=" pt-5 text-white ">Calculadora de Bhaskara</h2>
           </div>
@@ -157,7 +138,7 @@ export default function IndexPage() {
               <input
                 placeholder="Ingrese el valor de A"
                 type="text"
-                variant="bordered"
+
                 name="A"
                 className=" text-white bg-transparent w-full h-full align-middle p-1  border border-gray-800 rounded-3xl focus:border-none hover:border-blue-500 "
                 id="stateA"
@@ -171,7 +152,6 @@ export default function IndexPage() {
               <input
                 placeholder="Ingrese el valor de B"
                 type="text"
-                variant="bordered"
                 name="B"
                 className="text-white bg-transparent w-full h-full align-middle p-1  border border-gray-800 rounded-3xl focus:border-none hover:border-blue-500 "
                 id="stateB"
@@ -207,7 +187,7 @@ export default function IndexPage() {
               </div>
               <div className="w-full flex justify-center">
                 <button
-                  className="bg-[#eb636b] rounded-3xl  w-auto p-2 text-white"
+                  className="bg-[#eb636b] rounded-3xl  w-auto p-2 text-white "
                   onClick={() => limpiar()}
                 >
                   limpiar
@@ -254,6 +234,27 @@ export default function IndexPage() {
         </div>
       </section>
 
+      {/*------------------------------ Section Proyecto ---------------------------------*/}
+      <section id="Proyecto" className="flex justify-center items-center boardbg py-10">
+        <div className="  grid md:col-span-1">
+          <div className="w-full min-h-[295px] min-w-[430px] relative bg-no-repeat bg-cover  mx-auto bg-[url('/img/back.jpg')] rounded-xl overflow-hidden">
+            <div className="flex">
+              <div className="p-8">
+                <div className="uppercase tracking-wide text-sm text-white font-semibold">
+                  <h3>Sobre la exposicion</h3>
+                </div>
+              </div>
+            </div>
+            <div className="absolute left-0 right-0 p-4 mb-5 justify-center ml-2  max-h-32 overflow-y-scroll text-white">
+              <p>
+                Esta exposición surge con el fin de ayudar a alumnos que tengan
+                dudas con el área de las ecuaciones cuadráticas. En la sección
+                del chat, podrán preguntar lo que deseen al matemático.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       {/*------------------------------Section de Matematicos--------------------------------*/}
       <section>
         <Cards />
@@ -270,7 +271,7 @@ export default function IndexPage() {
             <div>
               <Bhaskara />
             </div>
-            <div className="mt-10">
+            <div className="mt-10 ">
               <ChatBox />
             </div>
           </div>

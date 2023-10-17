@@ -67,7 +67,7 @@ export const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="https://divgeeks-ccqalgxj0-divgeeks.vercel.app/contacto/contacto">
+              <Link href="https://divgeeks-ccqalgxj0-divgeeks.vercel.app/contacto/contacto" target="_blank">
                 <h2 className=" text-white">Contacto</h2>
               </Link>
             </li>

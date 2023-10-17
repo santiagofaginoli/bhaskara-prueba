@@ -46,9 +46,7 @@
     max-width: 500px;
     padding: 0 15px;
   }
-  section + section {
-    margin-top: 25px;
-  }
+
   .dialogue {
     border-radius: 4px;
     border: 1px solid lightgray;
@@ -69,8 +67,14 @@
     max-width: 85%;
     margin: 10px 0 15px;
   }
+  .prompt.left{
+    border-color: #025a4e;
+  }
+  .prompt.right{
+    border-color: #5a0202;
+  }
   .prompt.right .msg {
-    color: gray;
+    color: white;
   }
   .name {
     font-weight: bold;
@@ -81,6 +85,15 @@
     justify-content: space-between;
     padding-top: 25px;
   }
+  .fondo{
+    background-image: url("../public/img/calcu-bg.jpg") ;
+    background-size: cover;
+  }
+  .boardbg{
+    background-image: url("../public/img/boardbg.jpg") ;
+    background-size: cover; 
+  }
+
   ::placeholder {
     color: gray;
     opacity: 1;
