@@ -39,7 +39,7 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <img src="img/logo.png" className="h-11 mr-3" alt="Flowbite Logo" />
+            <img src="/img/logo.png" className="h-11 mr-3" alt="Flowbite Logo" />
             <p className=" text-inherit">Iresm</p>
           </NextLink>
         </NavbarBrand>
